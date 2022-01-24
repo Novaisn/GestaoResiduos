@@ -12,8 +12,10 @@ public class MainWindow extends JFrame {
 
     private JPanel mainPanel;
     private JLabel welcomeLabel;
-    private JButton button1;
-    private JButton loginClienteButton;
+    private JButton loginGestorButton;
+    private JButton loginMunicipioButton;
+    private JButton loginAdminButton;
+    private JButton loginChefeDeEquipaButton;
 
 
     MainWindow(String title) {
@@ -42,24 +44,14 @@ public class MainWindow extends JFrame {
         // Event handlers
         //
         MainWindow window = this;
-        this.getJMenuBar().getMenu(0).getItem(0).addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                trocarPainel(new CriarMunicipio().getPanel1());
-            }
-        });
+
         //
         // Event handlers
         //
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                trocarPainel(new CriarMunicipio().getJPanel1());
-            }
-        });
 
 
-        loginClienteButton.addActionListener(new ActionListener() {
+
+        loginMunicipioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 trocarPainel(new Login().getPanel1());

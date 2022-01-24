@@ -1,28 +1,31 @@
 package GUIFORM;
 
+import Modelo.Gestor;
 import Modelo.Municipio;
+import Repositorio.BLL.GestorBLL;
 import Repositorio.BLL.MunicipioBLL;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CriarMunicipio {
+public class CriarGestor {
     private JPanel panel1;
     private JPanel JPanel1;
-    private JTextField textFieldNome;
     private JTextField textFieldNCC;
+    private JTextField textFieldNome;
     private JTextField textFieldNif;
     private JTextField textFieldTelefone;
     private JTextField textFieldMorada;
     private JTextField textFieldLocalidade;
     private JTextField textFieldUser;
     private JPasswordField passwordFieldPass;
-    private JButton criarMunicipioButton;
+    private JButton criarGestorButton;
     private JButton voltarButton;
 
-    public CriarMunicipio() {
-        criarMunicipioButton.addActionListener(new ActionListener() {
+
+    public CriarGestor() {
+        criarGestorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nome = textFieldNome.getText();
@@ -33,9 +36,9 @@ public class CriarMunicipio {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
-                Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
-                MunicipioBLL.criarMunicipio(municipio);
-                JOptionPane.showMessageDialog(null,"Municipe criado com sucesso");
+                Gestor gestor = new Gestor(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                GestorBLL.criarGestor(gestor);
+                JOptionPane.showMessageDialog(null,"Gestor criado com sucesso");
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");
@@ -49,17 +52,9 @@ public class CriarMunicipio {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuAdmin("MainWindow").trocarParaPainelPrincipal();
+                new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
             }
         });
-    }
-
-    public JPanel getPanel1() {
-        return panel1;
-    }
-
-    public void setPanel1(JPanel panel1) {
-        this.panel1 = panel1;
     }
 
     public JPanel getJPanel1() {
@@ -68,5 +63,13 @@ public class CriarMunicipio {
 
     public void setJPanel1(JPanel JPanel1) {
         this.JPanel1 = JPanel1;
+    }
+
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
+    public void setPanel1(JPanel panel1) {
+        this.panel1 = panel1;
     }
 }
