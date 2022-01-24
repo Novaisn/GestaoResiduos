@@ -1,5 +1,8 @@
 package GUIFORM;
 
+import Modelo.Municipio;
+import Repositorio.BLL.MunicipioBLL;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +29,27 @@ public class CriarMunicipio {
                 String NCC = textFieldNCC.getText();
                 String Nif = textFieldNif.getText();
                 String telefone = textFieldTelefone.getText();
-
+                String morada = textFieldMorada.getText();
+                String localidade = textFieldLocalidade.getText();
+                String user = textFieldUser.getText();
+                String pass = passwordFieldPass.getText();
+                Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                MunicipioBLL.criarMunicipio(municipio);
+                JOptionPane.showMessageDialog(null,"Cliente criado com sucesso");
+                textFieldNome.setText("");
+                textFieldNCC.setText("");
+                textFieldNif.setText("");
+                textFieldTelefone.setText("");
+                textFieldMorada.setText("");
+                textFieldLocalidade.setText("");
+                textFieldUser.setText("");
+                passwordFieldPass.setText("");
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MainWindow("MainWindow").trocarParaPainelPrincipal();
             }
         });
     }
