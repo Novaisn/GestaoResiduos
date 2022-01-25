@@ -2,8 +2,10 @@ package GUIFORM;
 
 import Modelo.Admin;
 import Modelo.Municipio;
+import Modelo.Trabalhador;
 import Repositorio.BLL.AdminBLL;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.RepositorioAdmin;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,6 +28,10 @@ public class CriarAdmin {
         criarAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RepositorioAdmin repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
+                RepositorioAdmin.desserializar("Admin.repo");
+                repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
+
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
                 String Nif = textFieldNif.getText();
@@ -34,6 +40,15 @@ public class CriarAdmin {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
+
+                for(Admin a: repositorioAdmin.getAdminMap().values() ){
+                    if(a.getNif().equals(Nif) || a.getUserName().equals(user)){
+                        JOptionPane.showMessageDialog(null, "Erro");
+                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        break;
+                    }
+                }
+
                 Admin admin = new Admin(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 AdminBLL.criarAdmin(admin);
                 JOptionPane.showMessageDialog(null,"Admin criado com sucesso");

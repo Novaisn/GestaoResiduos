@@ -1,9 +1,11 @@
 package GUIFORM;
 
+import Modelo.Admin;
 import Modelo.Gestor;
 import Modelo.Municipio;
 import Repositorio.BLL.GestorBLL;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.RepositorioGestor;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,10 @@ public class CriarGestor {
         criarGestorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RepositorioGestor repositorioGestor = RepositorioGestor.getRepositorioGestor();
+                RepositorioGestor.desserializar("Gestor.repo");
+                repositorioGestor = RepositorioGestor.getRepositorioGestor();
+
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
                 String Nif = textFieldNif.getText();
@@ -36,6 +42,15 @@ public class CriarGestor {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
+
+                for(Gestor g: repositorioGestor.getGestorMap().values() ){
+                    if(g.getNif().equals(Nif) || g.getUserName().equals(user)){
+                        JOptionPane.showMessageDialog(null, "Erro");
+                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        break;
+                    }
+                }
+
                 Gestor gestor = new Gestor(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 GestorBLL.criarGestor(gestor);
                 JOptionPane.showMessageDialog(null,"Gestor criado com sucesso");

@@ -2,6 +2,7 @@ package GUIFORM;
 
 import Modelo.Trabalhador;
 import Repositorio.BLL.TrabalhadorBLL;
+import Repositorio.RepositorioTrabalhador;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,14 +20,26 @@ public class CriarTrabalhador {
 
 
     public CriarTrabalhador() {
+
         buttonCriarTrabalhador.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RepositorioTrabalhador repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
+                RepositorioTrabalhador.desserializar("Trabalhador.repo");
+                repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
                 String nome = textFieldNome.getText();
                 String NSS = textFieldNSS.getText();
                 String Nif = textFieldNIF.getText();
                 String telefone = textFieldTelefone.getText();
                 double salario = Double.parseDouble(textFieldSalario.getText());
+
+                for(Trabalhador t: repositorioTrabalhador.getTrabalhadorMap().values() ){
+                    if(t.getNIF().equals(Nif) || t.getNSS().equals(NSS)){
+                        JOptionPane.showMessageDialog(null, "Erro");
+                        new MenuMunicipio("Menu Municipio").trocarParaPainelPrincipal();
+                        break;
+                    }
+                }
                 Trabalhador trabalhador = new Trabalhador(nome, Nif,NSS,telefone,salario);
                 TrabalhadorBLL.criarTrabalhador(trabalhador);
                 JOptionPane.showMessageDialog(null, "Trabalhador criado com sucesso");

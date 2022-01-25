@@ -1,7 +1,9 @@
 package GUIFORM;
 
+import Modelo.Admin;
 import Modelo.Municipio;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.RepositorioMunicipio;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -25,6 +27,10 @@ public class CriarMunicipio {
         criarMunicipioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RepositorioMunicipio repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
+                RepositorioMunicipio.desserializar("Municipio.repo");
+                repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
+
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
                 String Nif = textFieldNif.getText();
@@ -33,6 +39,14 @@ public class CriarMunicipio {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
+
+                for(Municipio m: repositorioMunicipio.getMunicipioMap().values() ){
+                    if(m.getNif().equals(Nif) || m.getUserName().equals(user)){
+                        JOptionPane.showMessageDialog(null, "Erro");
+                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        break;
+                    }
+                }
                 Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 MunicipioBLL.criarMunicipio(municipio);
                 JOptionPane.showMessageDialog(null,"Municipe criado com sucesso");

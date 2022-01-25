@@ -64,7 +64,7 @@ public class MenuMunicipio extends JFrame {
         RepositorioChefeEquipa repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
         RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
         repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-        MenuMunicipio frame = new MenuMunicipio("dsff");
+        MenuMunicipio frame = new MenuMunicipio("Menu Municipio");
     }
     public void trocarPainel(JPanel painel){
         this.setContentPane(painel);

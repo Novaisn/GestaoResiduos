@@ -1,9 +1,11 @@
 package GUIFORM;
 
+import Modelo.Admin;
 import Modelo.ChefeEquipa;
 import Modelo.Municipio;
 import Repositorio.BLL.ChefeEquipaBLL;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.RepositorioChefeEquipa;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,6 +29,10 @@ public class CriarChefe {
         criarChefeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                RepositorioChefeEquipa repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
+                RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
+                repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
+
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
                 String Nif = textFieldNif.getText();
@@ -35,6 +41,14 @@ public class CriarChefe {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
+
+                for(ChefeEquipa c: repositorioChefeEquipa.getChefeEquipaMap().values()){
+                    if(c.getNif().equals(Nif) || c.getUserName().equals(user)){
+                        JOptionPane.showMessageDialog(null, "Erro");
+                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        break;
+                    }
+                }
                 ChefeEquipa chefeEquipa = new ChefeEquipa(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 ChefeEquipaBLL.criarChefe(chefeEquipa);
                 JOptionPane.showMessageDialog(null,"Chefe criado com sucesso");
