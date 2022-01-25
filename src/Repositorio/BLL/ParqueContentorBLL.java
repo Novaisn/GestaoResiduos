@@ -3,19 +3,20 @@ package Repositorio.BLL;
 
 import Modelo.ParqueContentores;
 import Repositorio.RepositorioParqueContentores;
+import Repositorio.Repositorio;
 
 public class ParqueContentorBLL {
     public static int getNextIdParqueContentor(){
-        int nextID = RepositorioParqueContentores.getRepositorioParqueContentores().getNextIdParque();
-        RepositorioParqueContentores.getRepositorioParqueContentores().setNextIdParque(++nextID);
+        int nextID = Repositorio.getRepositorio().getNextIdParque();
+        Repositorio.getRepositorio().setNextIdParque(++nextID);
         return nextID;
     }
 
     public static void criarParque(ParqueContentores parqueContentores){
         int nextID = getNextIdParqueContentor();
         parqueContentores.setIdParqueContentor(nextID);
-        RepositorioParqueContentores.getRepositorioParqueContentores().getParqueContentoresMap().put(parqueContentores.getIdParqueContentor(), parqueContentores);
+        Repositorio.getRepositorio().getParqueMap().put(parqueContentores.getIdParqueContentor(), parqueContentores);
         System.out.println("\nParque criado com sucesso!!!");
-        RepositorioParqueContentores.getRepositorioParqueContentores().serializarParquesContentores();
+        Repositorio.getRepositorio().serializar();
     }
 }

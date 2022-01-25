@@ -1,5 +1,7 @@
 package GUIFORM;
 
+import Modelo.Municipio;
+import Modelo.TipoResiduos;
 import Repositorio.*;
 
 import javax.swing.*;
@@ -14,6 +16,7 @@ public class MenuAdmin extends JFrame{
     private JButton criarChefeDeEquipaButton;
     private JButton voltarButton;
     private JButton criarTipoResiduoButton;
+    private JComboBox comboBox1;
 
     MenuAdmin(String titulo) {
          super(titulo);
@@ -58,39 +61,30 @@ public class MenuAdmin extends JFrame{
                 trocarPainel(new CriarTipoResiduo().getPanel1());
             }
         });
+
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
+
+
     }
 
     public static void main(String[] args) {
-        RepositorioTrabalhador repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
-        RepositorioTrabalhador.desserializar("Trabalhador.repo");
-        repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
 
-        RepositorioAdmin repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
-        RepositorioAdmin.desserializar("Admin.repo");
-        repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
-
-        RepositorioParqueContentores repositorioParqueContentores = RepositorioParqueContentores.getRepositorioParqueContentores();
-        RepositorioParqueContentores.desserializar("Parques.repo");
-        repositorioParqueContentores = RepositorioParqueContentores.getRepositorioParqueContentores();
-
-        RepositorioMunicipio repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
-        RepositorioMunicipio.desserializar("Municipio.repo");
-        repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
-
-        RepositorioGestor repositorioGestor = RepositorioGestor.getRepositorioGestor();
-        RepositorioGestor.desserializar("Gestor.repo");
-        repositorioGestor = RepositorioGestor.getRepositorioGestor();
-
-        RepositorioChefeEquipa repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-        RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
-        repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
         MenuAdmin frame = new MenuAdmin("titulo");
+
+
+
     }
     public void trocarPainel(JPanel painel){
         this.setContentPane(painel);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+
     }
 
     public void trocarParaPainelPrincipal() {

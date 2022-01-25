@@ -25,4 +25,8 @@ public class TipoResiduos implements Serializable {
     public void setIdTipoResiduo(int idTipoResiduo) {
         this.idTipoResiduo = idTipoResiduo;
     }
+
+    public String toString(){
+        return getTiporesiduo();
+    }
 }

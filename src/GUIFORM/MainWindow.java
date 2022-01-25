@@ -61,30 +61,9 @@ public class MainWindow extends JFrame {
 
     public static void main(String[] args) {
 
-        RepositorioTrabalhador repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
-        RepositorioTrabalhador.desserializar("Trabalhador.repo");
-        repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
-
-        RepositorioAdmin repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
-        RepositorioAdmin.desserializar("Admin.repo");
-        repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
-
-        RepositorioParqueContentores repositorioParqueContentores = RepositorioParqueContentores.getRepositorioParqueContentores();
-        RepositorioParqueContentores.desserializar("Parques.repo");
-        repositorioParqueContentores = RepositorioParqueContentores.getRepositorioParqueContentores();
-
-        RepositorioMunicipio repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
-        RepositorioMunicipio.desserializar("Municipio.repo");
-        repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
-
-        RepositorioGestor repositorioGestor = RepositorioGestor.getRepositorioGestor();
-        RepositorioGestor.desserializar("Gestor.repo");
-        repositorioGestor = RepositorioGestor.getRepositorioGestor();
-
-        RepositorioChefeEquipa repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-        RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
-        repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
 
         MainWindow frame = new MainWindow("MainWindow");
 
