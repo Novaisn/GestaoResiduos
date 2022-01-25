@@ -1,5 +1,6 @@
 package GUIFORM;
 
+import Modelo.Admin;
 import Modelo.Municipio;
 import Modelo.TipoResiduos;
 import Repositorio.*;

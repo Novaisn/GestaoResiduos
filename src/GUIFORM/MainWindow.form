@@ -21,36 +21,12 @@
           <grid row="1" column="1" row-span="9" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="583f9" class="javax.swing.JButton" binding="loginMunicipioButton">
+      <component id="583f9" class="javax.swing.JButton" binding="loginButton">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Login Municipio"/>
-        </properties>
-      </component>
-      <component id="9c643" class="javax.swing.JButton" binding="loginAdminButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Login Admin"/>
-        </properties>
-      </component>
-      <component id="a1226" class="javax.swing.JButton" binding="loginChefeDeEquipaButton" default-binding="true">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Login Chefe de Equipa"/>
-        </properties>
-      </component>
-      <component id="e0cd5" class="javax.swing.JButton" binding="loginGestorButton">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Login Gestor"/>
+          <text value="Login"/>
         </properties>
       </component>
     </children>

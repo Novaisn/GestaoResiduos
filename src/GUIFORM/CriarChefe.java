@@ -5,6 +5,7 @@ import Modelo.ChefeEquipa;
 import Modelo.Municipio;
 import Repositorio.BLL.ChefeEquipaBLL;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.Repositorio;
 import Repositorio.RepositorioChefeEquipa;
 
 import javax.swing.*;
@@ -29,9 +30,9 @@ public class CriarChefe {
         criarChefeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RepositorioChefeEquipa repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-                RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
-                repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
 
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
@@ -42,7 +43,7 @@ public class CriarChefe {
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
 
-                for(ChefeEquipa c: repositorioChefeEquipa.getChefeEquipaMap().values()){
+                for(ChefeEquipa c: repo.getEquipaMap().values()){
                     if(c.getNif().equals(Nif) || c.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
                         new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();

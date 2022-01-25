@@ -4,7 +4,7 @@ import Modelo.Admin;
 import Modelo.ChefeEquipa;
 import Modelo.Gestor;
 import Modelo.Municipio;
-import Repositorio.RepositorioAdmin;
+import Repositorio.Repositorio;
 import Repositorio.RepositorioChefeEquipa;
 import Repositorio.RepositorioGestor;
 import Repositorio.RepositorioMunicipio;
@@ -34,41 +34,37 @@ public class Login {
                 String nome = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
 
-                RepositorioMunicipio repositorioMunicipio;
-                RepositorioMunicipio.desserializar("Municipio.repo");
-                repositorioMunicipio = RepositorioMunicipio.getRepositorioMunicipio();
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
 
-                RepositorioAdmin repositorioAdmin;
-                RepositorioAdmin.desserializar("Admin.repo");
-                repositorioAdmin = RepositorioAdmin.getRepositorioAdmin();
+                for(Admin admin: repo.getAdminMap().values()){
+                    if(nome.equals(admin.getUserName())&& pass.equals(admin.getPass())){
+                        JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
 
-                RepositorioGestor repositorioGestor;
-                RepositorioGestor.desserializar("Gestor.repo");
-                repositorioGestor = RepositorioGestor.getRepositorioGestor();
+                        break;
+                    }
+                }
 
-                RepositorioChefeEquipa repositorioChefeEquipa;
-                RepositorioChefeEquipa.desserializar("ChefeEquipa.repo");
-                repositorioChefeEquipa = RepositorioChefeEquipa.getRepositorioChefeEquipa();
-
-                for(Municipio municipio : repositorioMunicipio.getMunicipioMap().values()){
+                for(Municipio municipio : repo.getMunicipioMap().values()){
                     if(nome.equals(municipio.getUserName()) && pass.equals(municipio.getPass())) {
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
                         break;
                     }
                 }
-                for(Admin admin: repositorioAdmin.getAdminMap().values()){
-                    if(nome.equals(admin.getUserName())&& pass.equals(admin.getPass())){
-                        JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
-                    }
-                }
-                for(Gestor gestor: repositorioGestor.getGestorMap().values()){
+
+                for(Gestor gestor: repo.getGestorMap().values()){
                     if(nome.equals(gestor.getUserName())&& pass.equals(gestor.getPass())){
                         JOptionPane.showMessageDialog(null,"login efetuado com sucesso");
+
+                        break;
                     }
                 }
-                for(ChefeEquipa chefeEquipa: repositorioChefeEquipa.getChefeEquipaMap().values()){
+                for(ChefeEquipa chefeEquipa: repo.getEquipaMap().values()){
                     if(nome.equals(chefeEquipa.getUserName()) && pass.equals(chefeEquipa.getPass())){
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
+
+                        break;
                     }
                 }
                 textFieldUser.setText("");

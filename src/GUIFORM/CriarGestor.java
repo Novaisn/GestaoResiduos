@@ -5,6 +5,7 @@ import Modelo.Gestor;
 import Modelo.Municipio;
 import Repositorio.BLL.GestorBLL;
 import Repositorio.BLL.MunicipioBLL;
+import Repositorio.Repositorio;
 import Repositorio.RepositorioGestor;
 
 import javax.swing.*;
@@ -30,9 +31,9 @@ public class CriarGestor {
         criarGestorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RepositorioGestor repositorioGestor = RepositorioGestor.getRepositorioGestor();
-                RepositorioGestor.desserializar("Gestor.repo");
-                repositorioGestor = RepositorioGestor.getRepositorioGestor();
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
 
                 String nome = textFieldNome.getText();
                 String NCC = textFieldNCC.getText();
@@ -43,7 +44,7 @@ public class CriarGestor {
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
 
-                for(Gestor g: repositorioGestor.getGestorMap().values() ){
+                for(Gestor g: repo.getGestorMap().values() ){
                     if(g.getNif().equals(Nif) || g.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
                         new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();

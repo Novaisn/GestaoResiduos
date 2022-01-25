@@ -12,10 +12,7 @@ public class MainWindow extends JFrame {
 
     private JPanel mainPanel;
     private JLabel welcomeLabel;
-    private JButton loginGestorButton;
-    private JButton loginMunicipioButton;
-    private JButton loginAdminButton;
-    private JButton loginChefeDeEquipaButton;
+    private JButton loginButton;
 
 
     MainWindow(String title) {
@@ -51,7 +48,7 @@ public class MainWindow extends JFrame {
 
 
 
-        loginMunicipioButton.addActionListener(new ActionListener() {
+        loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 trocarPainel(new Login().getPanel1());
