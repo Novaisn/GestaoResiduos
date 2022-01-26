@@ -28,7 +28,7 @@ public class CriarMunicipio {
         criarMunicipioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio repo;
                 Repositorio.desserializar("BD.repo");
                 repo = Repositorio.getRepositorio();
 
@@ -41,7 +41,7 @@ public class CriarMunicipio {
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
 
-                for(Municipio m: repo.getMunicipioMap().values() ){
+               for(Municipio m: repo.getMunicipioMap().values() ){
                     if(m.getNif().equals(Nif) || m.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
                         new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
@@ -50,7 +50,7 @@ public class CriarMunicipio {
                 }
                 Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 MunicipioBLL.criarMunicipio(municipio);
-                JOptionPane.showMessageDialog(null,"Municipe criado com sucesso");
+                JOptionPane.showMessageDialog(null,"Municipo criado com sucesso");
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");

@@ -56,6 +56,12 @@ public class Repositorio implements Serializable {
 
     private Repositorio(){
         adminMap = new HashMap<>();
+        equipaMap = new HashMap<>();
+        gestorMap = new HashMap<>();
+        municipioMap = new HashMap<>();
+        parqueMap = new HashMap<>();
+        tipoResiduosMap = new HashMap<>();
+        trabalhadorMap = new HashMap<>();
 
     }
 
@@ -135,7 +141,7 @@ public class Repositorio implements Serializable {
             out.writeObject(_repo);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in repo");
+            System.out.println("Serialized data is saved in repo");
         } catch(IOException ex){
             System.out.println("Erro: " + ex.getMessage());
         }

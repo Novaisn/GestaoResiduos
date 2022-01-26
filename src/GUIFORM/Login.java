@@ -41,7 +41,7 @@ public class Login {
                 for(Admin admin: repo.getAdminMap().values()){
                     if(nome.equals(admin.getUserName())&& pass.equals(admin.getPass())){
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
-
+                            new MenuAdmin("menu admin").trocarParaPainelPrincipal();
                         break;
                     }
                 }
@@ -49,6 +49,7 @@ public class Login {
                 for(Municipio municipio : repo.getMunicipioMap().values()){
                     if(nome.equals(municipio.getUserName()) && pass.equals(municipio.getPass())) {
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
+                        new MenuMunicipio("Menu Municipio").trocarParaPainelPrincipal();
                         break;
                     }
                 }

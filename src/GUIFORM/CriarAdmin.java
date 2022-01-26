@@ -49,10 +49,10 @@ public class CriarAdmin {
                         break;
                     }
                 }
-
                 Admin admin = new Admin(nome, NCC, Nif, telefone, morada, localidade, pass, user);
                 AdminBLL.criarAdmin(admin);
                 JOptionPane.showMessageDialog(null,"Admin criado com sucesso");
+
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");

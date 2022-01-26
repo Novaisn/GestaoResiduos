@@ -63,10 +63,13 @@ public class MenuAdmin extends JFrame{
             }
         });
 
-        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio repo;
         Repositorio.desserializar("BD.repo");
         repo = Repositorio.getRepositorio();
 
+        for (TipoResiduos t: repo.getTipoResiduosMap().values()){
+            comboBox1.addItem(t);
+        }
 
     }
 
