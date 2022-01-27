@@ -24,8 +24,11 @@ public class Login {
     public Login() {
         voltarButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed (ActionEvent e) {
+
+
                 new MainWindow("main window").trocarParaPainelPrincipal();
+
             }
         });
         entrarButton.addActionListener(new ActionListener() {
@@ -49,7 +52,7 @@ public class Login {
                 for(Municipio municipio : repo.getMunicipioMap().values()){
                     if(nome.equals(municipio.getUserName()) && pass.equals(municipio.getPass())) {
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
-                        new MenuMunicipio("Menu Municipio").trocarParaPainelPrincipal();
+                        new MenuMunicipio("Menu Municipio" ,municipio).trocarParaPainelPrincipal();
                         break;
                     }
                 }

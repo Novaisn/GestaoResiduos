@@ -24,12 +24,21 @@ public class CriarChefe {
     private JPasswordField passwordFieldPass;
     private JButton criarChefeButton;
     private JButton voltarButton;
+    private JComboBox comboBox1;
 
 
     public CriarChefe() {
+
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
+        for(Municipio m : repo.getMunicipioMap().values()){
+            comboBox1.addItem(m);
+        }
         criarChefeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Repositorio repo = Repositorio.getRepositorio();
                 Repositorio.desserializar("BD.repo");
                 repo = Repositorio.getRepositorio();
@@ -42,7 +51,7 @@ public class CriarChefe {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
-
+                Municipio municipio = (Municipio) comboBox1.getSelectedItem();
                 for(ChefeEquipa c: repo.getEquipaMap().values()){
                     if(c.getNif().equals(Nif) || c.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
@@ -50,7 +59,7 @@ public class CriarChefe {
                         break;
                     }
                 }
-                ChefeEquipa chefeEquipa = new ChefeEquipa(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                ChefeEquipa chefeEquipa = new ChefeEquipa(nome, NCC, Nif, telefone, morada, localidade, pass, user, municipio);
                 ChefeEquipaBLL.criarChefe(chefeEquipa);
                 JOptionPane.showMessageDialog(null,"Chefe criado com sucesso");
                 textFieldNome.setText("");
@@ -66,7 +75,7 @@ public class CriarChefe {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                new MenuAdmin("Menu Admin");
             }
         });
     }

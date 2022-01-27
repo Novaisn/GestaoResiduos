@@ -74,6 +74,7 @@ public class MainWindow extends JFrame {
     }
 
     public void trocarParaPainelPrincipal() {
+        this.dispose();
         this.setContentPane(mainPanel);
         this.pack();
         this.setVisible(true);

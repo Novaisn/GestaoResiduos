@@ -9,14 +9,25 @@ public class Trabalhador implements Serializable {
     private String NSS;
     private String telefone;
     private double salario;
+    private Municipio municipio;
 
-    public Trabalhador( String nome, String NIF, String NSS, String telefone, double salario) {
+    public Trabalhador( String nome, String NIF, String NSS, String telefone, double salario, Municipio municipio) {
 
         this.nome = nome;
         this.NIF = NIF;
         this.NSS = NSS;
         this.telefone = telefone;
         this.salario = salario;
+        this.municipio = municipio;
+    }
+
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 
     public int getIdTrabalhador() {

@@ -20,11 +20,11 @@ public class MenuAdmin extends JFrame{
     private JComboBox comboBox1;
 
     MenuAdmin(String titulo) {
-         super(titulo);
-         this.setContentPane(panel1);
-         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         this.pack();
-         this.setVisible(true);
+        super(titulo);
+        this.setContentPane(panel1);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
         criarMunicipioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,24 +32,24 @@ public class MenuAdmin extends JFrame{
             }
         });
 
-         criarGestorButton.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 trocarPainel(new CriarGestor().getJPanel1());
-             }
-         });
-         criarChefeDeEquipaButton.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 trocarPainel(new CriarChefe().getJPanel1());
-             }
-         });
-         criarAdminButton.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 trocarPainel(new CriarAdmin().getJPanel1());
-             }
-         });
+        criarGestorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new CriarGestor().getJPanel1());
+            }
+        });
+        criarChefeDeEquipaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new CriarChefe().getJPanel1());
+            }
+        });
+        criarAdminButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new CriarAdmin().getJPanel1());
+            }
+        });
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +71,14 @@ public class MenuAdmin extends JFrame{
             comboBox1.addItem(t);
         }
 
+    }
+
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
+    public void setPanel1(JPanel panel1) {
+        this.panel1 = panel1;
     }
 
     public static void main(String[] args) {

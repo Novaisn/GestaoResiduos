@@ -1,5 +1,6 @@
 package GUIFORM;
 
+import Modelo.Municipio;
 import Modelo.Trabalhador;
 import Repositorio.BLL.TrabalhadorBLL;
 import Repositorio.RepositorioTrabalhador;
@@ -19,7 +20,7 @@ public class CriarTrabalhador {
     private JButton voltarButton;
 
 
-    public CriarTrabalhador() {
+    public CriarTrabalhador(Municipio municipio) {
 
         buttonCriarTrabalhador.addActionListener(new ActionListener() {
             @Override
@@ -36,11 +37,11 @@ public class CriarTrabalhador {
                 for(Trabalhador t: repositorioTrabalhador.getTrabalhadorMap().values() ){
                     if(t.getNIF().equals(Nif) || t.getNSS().equals(NSS)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuMunicipio("Menu Municipio").trocarParaPainelPrincipal();
+                        new MenuMunicipio("Menu Municipio", municipio).trocarParaPainelPrincipal();
                         break;
                     }
                 }
-                Trabalhador trabalhador = new Trabalhador(nome, Nif,NSS,telefone,salario);
+                Trabalhador trabalhador = new Trabalhador(nome, Nif,NSS,telefone,salario, municipio);
                 TrabalhadorBLL.criarTrabalhador(trabalhador);
                 JOptionPane.showMessageDialog(null, "Trabalhador criado com sucesso");
                 textFieldNome.setText("");
@@ -53,7 +54,7 @@ public class CriarTrabalhador {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MenuMunicipio("Menu Municipio").trocarParaPainelPrincipal();
+                new MenuMunicipio("Menu Municipio",municipio).trocarParaPainelPrincipal();
             }
         });
     }

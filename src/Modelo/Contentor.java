@@ -5,12 +5,13 @@ public class Contentor {
     private TipoResiduos tipoResiduo;
     private EstadoContentor estadoContentor;
     private String Anotacao;
+    private ParqueContentores parqueContentores;
 
-    public Contentor(int idContentor, TipoResiduos tipoResiduo, EstadoContentor estadoContentor, String anotacao) {
+    public Contentor(int idContentor, TipoResiduos tipoResiduo, EstadoContentor estadoContentor) {
         this.idContentor = idContentor;
         this.tipoResiduo = tipoResiduo;
         this.estadoContentor = estadoContentor;
-        Anotacao = anotacao;
+
     }
 
     public String getAnotacao() {

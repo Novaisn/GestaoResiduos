@@ -1,5 +1,6 @@
 package GUIFORM;
 
+import Modelo.Municipio;
 import Repositorio.*;
 
 import javax.swing.*;
@@ -11,9 +12,10 @@ public class MenuMunicipio extends JFrame {
     private JButton criarParqueButton;
     private JButton voltarButton;
     private JButton criarTrabalhadorButton;
+    private JButton criarEquipaButton;
 
 
-    public MenuMunicipio(String titulo) {
+    public MenuMunicipio(String titulo, Municipio municipio) {
         super(titulo);
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,10 +34,16 @@ public class MenuMunicipio extends JFrame {
                 new MainWindow("Menu Principal").trocarParaPainelPrincipal();
             }
         });
-        criarTrabalhadorButton.addActionListener(new ActionListener() {
+       /* criarTrabalhadorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            trocarPainel(new CriarTrabalhador(municipio).getPanel1());
+            }
+        });*/
+        criarEquipaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new CriarEquipa().getPanel1());
             }
         });
     }
@@ -44,6 +52,8 @@ public class MenuMunicipio extends JFrame {
         Repositorio repo = Repositorio.getRepositorio();
         Repositorio.desserializar("BD.repo");
         repo = Repositorio.getRepositorio();
+
+
     }
     public void trocarPainel(JPanel painel){
         this.setContentPane(painel);

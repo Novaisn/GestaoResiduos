@@ -24,7 +24,12 @@ public class Repositorio implements Serializable {
     private Map<Integer, TipoResiduos> tipoResiduosMap;
     private int nextIdTrabalhador = 0;
     private Map<Integer, Trabalhador> trabalhadorMap;
+    private int nextIdContentor = 0;
+    private Map<Integer, Contentor> contentorMap;
 
+    public Map<Integer, Contentor> getContentorMap() {
+        return contentorMap;
+    }
 
     public Map<Integer, Admin> getAdminMap() {
         return adminMap;
@@ -62,7 +67,7 @@ public class Repositorio implements Serializable {
         parqueMap = new HashMap<>();
         tipoResiduosMap = new HashMap<>();
         trabalhadorMap = new HashMap<>();
-
+        contentorMap = new HashMap<>();
     }
 
     public int getNextIdAdmin() {
@@ -119,6 +124,14 @@ public class Repositorio implements Serializable {
 
     public void setNextIdTrabalhador(int nextIdTrabalhador) {
         this.nextIdTrabalhador = nextIdTrabalhador;
+    }
+
+    public int getNextIdContentor() {
+        return nextIdContentor;
+    }
+
+    public void setNextIdContentor(int nextIdContentor) {
+        this.nextIdContentor = nextIdContentor;
     }
 
     public static Repositorio getRepositorio(){
