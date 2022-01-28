@@ -54,6 +54,7 @@ public class MainWindow extends JFrame {
                 trocarPainel(new Login().getPanel1());
             }
         });
+
     }
 
     public static void main(String[] args) {
