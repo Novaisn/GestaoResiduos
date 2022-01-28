@@ -43,7 +43,7 @@ public class MenuMunicipio extends JFrame {
         criarEquipaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                trocarPainel(new CriarEquipa().getPanel1());
+                trocarPainel(new CriarEquipa(municipio).getPanel1());
             }
         });
     }

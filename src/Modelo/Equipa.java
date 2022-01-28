@@ -10,8 +10,8 @@ public class Equipa  implements Serializable {
     private List<TipoResiduos> residuos;
     private List<Trabalhador> trabalhadores;
 
-    public Equipa(int idEquipa, String nome, ChefeEquipa chefeEquipa, List<TipoResiduos> residuos, List<Trabalhador> trabalhadores) {
-        this.idEquipa = idEquipa;
+    public Equipa( String nome, ChefeEquipa chefeEquipa, List<TipoResiduos> residuos, List<Trabalhador> trabalhadores) {
+
         this.nome = nome;
         this.chefeEquipa = chefeEquipa;
         this.residuos = residuos;

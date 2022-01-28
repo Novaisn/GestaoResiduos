@@ -1,9 +1,7 @@
 package GUIFORM;
 
-import Modelo.ChefeEquipa;
-import Modelo.Municipio;
-import Modelo.TipoResiduos;
-import Modelo.Trabalhador;
+import Modelo.*;
+import Repositorio.BLL.EquipaBLL;
 import Repositorio.Repositorio;
 
 import javax.swing.*;
@@ -24,14 +22,21 @@ public class CriarEquipa {
     private JPanel painel;
     private JButton voltarButton;
 
+    public JTextField getTextField1() {
+        return textField1;
+    }
 
-    public CriarEquipa() {
+    public void setTextField1(JTextField textField1) {
+        this.textField1 = textField1;
+    }
+
+    public CriarEquipa(Municipio municipio) {
         Repositorio repo = Repositorio.getRepositorio();
         Repositorio.desserializar("BD.repo");
         repo = Repositorio.getRepositorio();
 
-
-
+        List<Trabalhador> trabalhadores = new ArrayList<>();
+        List<TipoResiduos> residuos = new ArrayList<>();
 
         for(TipoResiduos t : repo.getTipoResiduosMap().values()){
             comboBoxResiduo.addItem(t);
@@ -44,20 +49,41 @@ public class CriarEquipa {
         }
 
 
-        criarParqueButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         adicionarResiduoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<TipoResiduos> residuos = new ArrayList<>();
+
                 TipoResiduos aux;
                 aux = (TipoResiduos) comboBoxResiduo.getSelectedItem();
                 residuos.add(aux);
                 comboBoxResiduo.removeItem(comboBoxResiduo.getSelectedItem());
+            }
+        });
+        adicionarTrabalhadorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Trabalhador aux;
+                aux = (Trabalhador) comboBoxTrabalhador.getSelectedItem();
+                trabalhadores.add(aux);
+                comboBoxTrabalhador.removeItem(comboBoxTrabalhador.getSelectedItem());
+            }
+        });
+        criarParqueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nome = textField1.getText();
+                ChefeEquipa chefeEquipa = (ChefeEquipa) comboBoxChefe.getSelectedItem();
+                Equipa equipa = new Equipa(nome,chefeEquipa,residuos,trabalhadores);
+                EquipaBLL.criarEquipa(equipa);
+                JOptionPane.showMessageDialog(null,"Equipa criada com sucesso");
+                textField1.setText("");
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuMunicipio("Menu Municipio", municipio).trocarParaPainelPrincipal();
             }
         });
     }
