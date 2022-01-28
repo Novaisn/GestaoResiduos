@@ -18,7 +18,7 @@ public class MenuMunicipio extends JFrame {
     public MenuMunicipio(String titulo, Municipio municipio) {
         super(titulo);
         this.setContentPane(panel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
         this.setVisible(true);
         criarParqueButton.addActionListener(new ActionListener() {
