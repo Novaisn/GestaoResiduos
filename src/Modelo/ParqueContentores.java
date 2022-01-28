@@ -11,16 +11,17 @@ public class ParqueContentores implements Serializable {
     private List<Contentor> contentores;
     private Gestor gestor;
     private Equipa equipa;
+    private Municipio municipio;
 
-    public ParqueContentores(String nome, int idParqueContentor, String morada, String localidade,
-                             List<Contentor> contentores, Gestor gestor, Equipa equipa) {
+    public ParqueContentores(String nome,  String morada, String localidade,
+                             List<Contentor> contentores, Gestor gestor, Municipio municipio) {
         this.nome = nome;
-        this.idParqueContentor = idParqueContentor;
+
         this.morada = morada;
         this.localidade = localidade;
         this.contentores = contentores;
         this.gestor = gestor;
-        this.equipa = equipa;
+        this.municipio = municipio;
     }
 
     public String getNome() {
@@ -77,5 +78,13 @@ public class ParqueContentores implements Serializable {
 
     public void setEquipa(Equipa equipa) {
         this.equipa = equipa;
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 }

@@ -24,7 +24,7 @@ public class MenuMunicipio extends JFrame {
         criarParqueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                trocarPainel(new CriarParque(municipio).getPanel1());
             }
         });
 
@@ -34,12 +34,13 @@ public class MenuMunicipio extends JFrame {
                 new MainWindow("Menu Principal").trocarParaPainelPrincipal();
             }
         });
-       /* criarTrabalhadorButton.addActionListener(new ActionListener() {
+       criarTrabalhadorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             trocarPainel(new CriarTrabalhador(municipio).getPanel1());
             }
-        });*/
+
+        });
         criarEquipaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

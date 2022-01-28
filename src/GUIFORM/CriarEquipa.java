@@ -14,7 +14,7 @@ public class CriarEquipa {
     private JPanel panel1;
     private JComboBox comboBoxChefe;
     private JButton adicionarTrabalhadorButton;
-    private JButton criarParqueButton;
+    private JButton criarEquipaButton;
     private JTextField textField1;
     private JComboBox comboBoxResiduo;
     private JButton adicionarResiduoButton;
@@ -69,7 +69,7 @@ public class CriarEquipa {
                 comboBoxTrabalhador.removeItem(comboBoxTrabalhador.getSelectedItem());
             }
         });
-        criarParqueButton.addActionListener(new ActionListener() {
+        criarEquipaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nome = textField1.getText();

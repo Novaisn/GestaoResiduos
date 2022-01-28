@@ -7,8 +7,8 @@ public class Contentor {
     private String Anotacao;
     private ParqueContentores parqueContentores;
 
-    public Contentor(int idContentor, TipoResiduos tipoResiduo, EstadoContentor estadoContentor) {
-        this.idContentor = idContentor;
+    public Contentor( TipoResiduos tipoResiduo, EstadoContentor estadoContentor) {
+
         this.tipoResiduo = tipoResiduo;
         this.estadoContentor = estadoContentor;
 
@@ -44,5 +44,10 @@ public class Contentor {
 
     public void setEstadoContentor(EstadoContentor estadoContentor) {
         this.estadoContentor = estadoContentor;
+    }
+
+    public String toString(){
+
+        return " "+getIdContentor()+"-"+getTipoResiduo();
     }
 }

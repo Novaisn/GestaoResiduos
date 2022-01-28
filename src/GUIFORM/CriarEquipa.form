@@ -100,12 +100,12 @@
           <text value="Voltar"/>
         </properties>
       </component>
-      <component id="6b6e3" class="javax.swing.JButton" binding="criarParqueButton" default-binding="true">
+      <component id="6b6e3" class="javax.swing.JButton" binding="criarEquipaButton">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Criar parque"/>
+          <text value="Criar Equipa"/>
         </properties>
       </component>
     </children>
