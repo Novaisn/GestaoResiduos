@@ -77,4 +77,8 @@ public class Trabalhador implements Serializable {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    public String toString(){
+        return " "+getNome();
+    }
 }

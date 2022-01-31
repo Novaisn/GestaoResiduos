@@ -37,4 +37,8 @@ public class ChefeEquipa extends Utilizador implements Serializable {
     public void setEquipa(Equipa equipa) {
         this.equipa = equipa;
     }
+
+    public String toString(){
+        return " "+getNome();
+    }
 }

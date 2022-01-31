@@ -18,4 +18,8 @@ public class Gestor extends Utilizador implements Serializable {
     public void setIdGestor(int idGestor) {
         this.idGestor = idGestor;
     }
+
+    public String toString(){
+        return " "+getNome();
+    }
 }

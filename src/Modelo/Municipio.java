@@ -17,4 +17,8 @@ public class Municipio extends Utilizador implements Serializable {
     public void setIdMunicipio(int idMunicipio) {
         this.idMunicipio = idMunicipio;
     }
+
+    public String toString(){
+        return " "+getNome();
+    }
 }

@@ -30,6 +30,7 @@ public class CriarParque {
         repo = Repositorio.getRepositorio();
         List<Contentor> contentores = new ArrayList<>();
         for (Contentor c : repo.getContentorMap().values()){
+
             comboBoxContentor.addItem(c);
         }
         for(Gestor g: repo.getGestorMap().values()){

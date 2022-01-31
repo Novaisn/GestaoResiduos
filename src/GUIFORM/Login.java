@@ -10,6 +10,7 @@ import Repositorio.RepositorioGestor;
 import Repositorio.RepositorioMunicipio;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,7 +26,6 @@ public class Login {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e) {
-
 
                 new MainWindow("main window").trocarParaPainelPrincipal();
 
@@ -60,7 +60,7 @@ public class Login {
                 for(Gestor gestor: repo.getGestorMap().values()){
                     if(nome.equals(gestor.getUserName())&& pass.equals(gestor.getPass())){
                         JOptionPane.showMessageDialog(null,"login efetuado com sucesso");
-
+                        new MenuGestor(gestor).getPanel1();
                         break;
                     }
                 }

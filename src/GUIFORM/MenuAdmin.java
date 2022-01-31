@@ -53,7 +53,10 @@ public class MenuAdmin extends JFrame{
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                hide();
+                setVisible(false);
                 new MainWindow("Main Window").trocarParaPainelPrincipal();
+
             }
         });
         criarTipoResiduoButton.addActionListener(new ActionListener() {

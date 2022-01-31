@@ -30,7 +30,7 @@ public class MainWindow extends JFrame {
         // Conteudo da Pane da JFrame
         //
         this.setContentPane(mainPanel);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
         //

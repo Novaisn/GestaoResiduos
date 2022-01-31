@@ -1,6 +1,8 @@
 package Modelo;
 
-public class Contentor {
+import java.io.Serializable;
+
+public class Contentor implements Serializable {
     private int idContentor;
     private TipoResiduos tipoResiduo;
     private EstadoContentor estadoContentor;
