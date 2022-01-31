@@ -17,6 +17,8 @@ public class AtualizarEstadoContentor {
     private JComboBox comboBoxEstado;
     private JButton atualizarButton;
     private JButton voltarButton;
+    private JPanel jpanel2;
+    private JButton selecionarParqueButton;
 
 
     public AtualizarEstadoContentor(Gestor gestor) {
@@ -30,13 +32,7 @@ public class AtualizarEstadoContentor {
                 comboBoxParque.addItem(p);
             }
         }
-        ParqueContentores aux;
-        aux = (ParqueContentores) comboBoxParque.getSelectedItem();
-        comboBoxContentor.addItem(aux.getContentores());
 
-        for(EstadoContentor estadoContentor : EstadoContentor.values()){
-            comboBoxEstado.addItem(estadoContentor);
-        }
 
         atualizarButton.addActionListener(new ActionListener() {
             @Override
@@ -48,6 +44,27 @@ public class AtualizarEstadoContentor {
                 cont.setEstadoContentor(ec);
             }
         });
+
+        selecionarParqueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ParqueContentores aux;
+                aux = (ParqueContentores) comboBoxParque.getSelectedItem();
+                comboBoxContentor.addItem(aux.getContentores());
+
+                for(EstadoContentor estadoContentor : EstadoContentor.values()){
+                    comboBoxEstado.addItem(estadoContentor);
+                }
+            }
+        });
+    }
+
+    public JPanel getJpanel2() {
+        return jpanel2;
+    }
+
+    public void setJpanel2(JPanel jpanel2) {
+        this.jpanel2 = jpanel2;
     }
 
     public JPanel getPanel1() {

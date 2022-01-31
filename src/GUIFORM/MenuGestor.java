@@ -21,7 +21,7 @@ public class MenuGestor extends JFrame{
         atualizarEstadoDeContentorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                trocarPainel(new AtualizarEstadoContentor(gestor).getJpanel2());
             }
         });
         criarOrdemDeTrabalhoButton.addActionListener(new ActionListener() {
@@ -46,4 +46,16 @@ public class MenuGestor extends JFrame{
         repo = Repositorio.getRepositorio();
     }
 
+    public void trocarPainel(JPanel painel){
+        this.setContentPane(painel);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    public void trocarParaPainelPrincipal() {
+        this.setContentPane(panel1);
+        this.pack();
+        this.setVisible(true);
+    }
 }
