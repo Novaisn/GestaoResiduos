@@ -52,7 +52,9 @@ public class Login {
                 for(Municipio municipio : repo.getMunicipioMap().values()){
                     if(nome.equals(municipio.getUserName()) && pass.equals(municipio.getPass())) {
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
+
                         new MenuMunicipio("Menu Municipio" ,municipio).trocarParaPainelPrincipal();
+
                         break;
                     }
                 }

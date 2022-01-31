@@ -15,7 +15,7 @@ public class EquipaBLL {
         int nextID = getNextIdEquipa();
         equipa.setIdEquipa(nextID);
         Repositorio.getRepositorio().getEquipatrabalhadoresMap().put(equipa.getIdEquipa(), equipa);
-        System.out.println("\nAdmin criado com sucesso!!!");
+        System.out.println("\nEquipa criada com sucesso!!!");
         Repositorio.getRepositorio().serializar();
     }
 }
