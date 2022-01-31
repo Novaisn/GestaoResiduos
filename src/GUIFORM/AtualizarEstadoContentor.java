@@ -28,20 +28,24 @@ public class AtualizarEstadoContentor {
         repo = Repositorio.getRepositorio();
 
         for(ParqueContentores p : repo.getParqueMap().values()){
-            if(p.getGestor().equals(gestor)){
+            //if(p.getGestor().equals(gestor)){
                 comboBoxParque.addItem(p);
-            }
+            //}
         }
 
 
         atualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
                 Contentor cont;
                 cont = (Contentor) comboBoxContentor.getSelectedItem();
                 EstadoContentor ec;
                 ec = (EstadoContentor) comboBoxEstado.getSelectedItem();
                 cont.setEstadoContentor(ec);
+                repo.serializar();
             }
         });
 
@@ -50,11 +54,19 @@ public class AtualizarEstadoContentor {
             public void actionPerformed(ActionEvent e) {
                 ParqueContentores aux;
                 aux = (ParqueContentores) comboBoxParque.getSelectedItem();
-                comboBoxContentor.addItem(aux.getContentores());
+                for(Contentor c : aux.getContentores()){
+                    comboBoxContentor.addItem(c);
+                }
 
                 for(EstadoContentor estadoContentor : EstadoContentor.values()){
                     comboBoxEstado.addItem(estadoContentor);
                 }
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
