@@ -66,7 +66,7 @@ public class AtualizarEstadoContentor {
         voltarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new MenuGestor(gestor).trocarParaPainelPrincipal();
             }
         });
     }
