@@ -8,11 +8,31 @@ public class OrdemServico implements Serializable {
     private Date data;
     private String descricao;
     private ParqueContentores parqueContentores;
+    private Equipa equipa;
+    private EstadoOrdemServico estado;
 
-    public OrdemServico(Date data, String descricao, ParqueContentores parqueContentores) {
+    public OrdemServico(Date data, String descricao, ParqueContentores parqueContentores, Equipa equipa, EstadoOrdemServico estado) {
         this.data = data;
         this.descricao = descricao;
         this.parqueContentores = parqueContentores;
+        this.equipa = equipa;
+        this.estado = estado;
+    }
+
+    public EstadoOrdemServico getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoOrdemServico estado) {
+        this.estado = estado;
+    }
+
+    public Equipa getEquipa() {
+        return equipa;
+    }
+
+    public void setEquipa(Equipa equipa) {
+        this.equipa = equipa;
     }
 
     public int getIdOrdem() {
