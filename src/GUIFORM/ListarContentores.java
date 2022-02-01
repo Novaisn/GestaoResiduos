@@ -15,9 +15,8 @@ import java.util.List;
 public class ListarContentores {
     private JPanel panel1;
     private JPanel painel;
-    private JComboBox comboBox1;
-    private JButton selecionarParqueButton;
     private JTable table1;
+    private JButton voltarButton;
 
 
     private void createUIComponents() {
@@ -42,6 +41,13 @@ public class ListarContentores {
         TabelaContentor tabelaContentor = new TabelaContentor(contentor);
         table1.setModel(tabelaContentor);
 
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                new MenuGestor(gestor).trocarParaPainelPrincipal();
+            }
+        });
     }
 
     private static class TabelaContentor extends AbstractTableModel {

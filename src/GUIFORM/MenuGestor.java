@@ -37,6 +37,12 @@ public class MenuGestor extends JFrame{
                 trocarPainel(new ListarContentores(gestor).getPanel1());
             }
         });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MainWindow("Menu Principal").trocarParaPainelPrincipal();
+            }
+        });
     }
 
     public JPanel getPanel1() {
@@ -61,6 +67,7 @@ public class MenuGestor extends JFrame{
     }
 
     public void trocarParaPainelPrincipal() {
+        hide();
         this.setContentPane(panel1);
         this.pack();
         this.setVisible(true);
