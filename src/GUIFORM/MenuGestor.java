@@ -13,6 +13,7 @@ public class MenuGestor extends JFrame{
     private JButton criarOrdemDeTrabalhoButton;
     private JButton voltarButton;
     private JButton listarContentoresButton;
+    private JButton listarOrdensDeTrabalhoButton;
 
     public MenuGestor(Gestor gestor) {
         this.setContentPane(panel1);
@@ -28,7 +29,7 @@ public class MenuGestor extends JFrame{
         criarOrdemDeTrabalhoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                trocarPainel(new CriarOrdemTrab(gestor).getPainel());
             }
         });
         listarContentoresButton.addActionListener(new ActionListener() {
@@ -41,6 +42,12 @@ public class MenuGestor extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new MainWindow("Menu Principal").trocarParaPainelPrincipal();
+            }
+        });
+        listarOrdensDeTrabalhoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new ListarOrdensGestor(gestor).getPanel1());
             }
         });
     }

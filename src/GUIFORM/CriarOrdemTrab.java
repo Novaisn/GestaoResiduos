@@ -1,9 +1,7 @@
 package GUIFORM;
 
-import Modelo.Equipa;
-import Modelo.EstadoOrdemServico;
-import Modelo.OrdemServico;
-import Modelo.ParqueContentores;
+import Modelo.*;
+import Repositorio.Repositorio;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +21,18 @@ public class CriarOrdemTrab {
     private JTextField textField1;
 
 
-    public CriarOrdemTrab() {
+    public CriarOrdemTrab(Gestor gestor) {
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
+
+        for (ParqueContentores p : repo.getParqueMap().values()){
+            if(p.getGestor().getIdGestor() == gestor.getIdGestor()){
+                comboBoxParque.addItem(p);
+            }
+        }
+
+
         criarOrdemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -42,10 +42,14 @@ public class CriarEquipa {
             comboBoxResiduo.addItem(t);
         }
         for (ChefeEquipa c: repo.getEquipaMap().values()){
-            comboBoxChefe.addItem(c);
+            if(c.getMunicipio().getIdMunicipio() == municipio.getIdMunicipio()) {
+                comboBoxChefe.addItem(c);
+            }
         }
         for(Trabalhador tra: repo.getTrabalhadorMap().values()){
-            comboBoxTrabalhador.addItem(tra);
+            if(tra.getMunicipio().getIdMunicipio() == municipio.getIdMunicipio()) {
+                comboBoxTrabalhador.addItem(tra);
+            }
         }
 
 
@@ -74,7 +78,7 @@ public class CriarEquipa {
             public void actionPerformed(ActionEvent e) {
                 String nome = textField1.getText();
                 ChefeEquipa chefeEquipa = (ChefeEquipa) comboBoxChefe.getSelectedItem();
-                Equipa equipa = new Equipa(nome,chefeEquipa,residuos,trabalhadores);
+                Equipa equipa = new Equipa(nome,chefeEquipa,residuos,trabalhadores, municipio);
                 EquipaBLL.criarEquipa(equipa);
                 JOptionPane.showMessageDialog(null,"Equipa criada com sucesso");
                 textField1.setText("");
