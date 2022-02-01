@@ -28,9 +28,9 @@ public class AtualizarEstadoContentor {
         repo = Repositorio.getRepositorio();
 
         for(ParqueContentores p : repo.getParqueMap().values()){
-            //if(p.getGestor().equals(gestor)){
+            if(p.getGestor().getIdGestor() == gestor.getIdGestor()){
                 comboBoxParque.addItem(p);
-            //}
+            }
         }
 
 

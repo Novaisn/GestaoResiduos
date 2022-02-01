@@ -48,6 +48,14 @@ public class Contentor implements Serializable {
         this.estadoContentor = estadoContentor;
     }
 
+    public ParqueContentores getParqueContentores() {
+        return parqueContentores;
+    }
+
+    public void setParqueContentores(ParqueContentores parqueContentores) {
+        this.parqueContentores = parqueContentores;
+    }
+
     public String toString(){
 
         return " "+getIdContentor()+"-"+getTipoResiduo();
