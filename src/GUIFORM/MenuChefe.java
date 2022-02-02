@@ -1,8 +1,6 @@
 package GUIFORM;
 
-import Modelo.ChefeEquipa;
-import Modelo.EstadoOrdemServico;
-import Modelo.OrdemServico;
+import Modelo.*;
 import Repositorio.Repositorio;
 
 import javax.swing.*;
@@ -48,7 +46,11 @@ public class MenuChefe extends JFrame{
                 OrdemServico aux;
                 aux = (OrdemServico) comboBox1.getSelectedItem();
                 aux.setEstado(EstadoOrdemServico.TERMINADO);
+                for(Contentor c : aux.getParqueContentores().getContentores()){
+                    c.setEstadoContentor(EstadoContentor.ATE_MEIO);
+                }
                 Repositorio.serializar();
+
             }
         });
     }
