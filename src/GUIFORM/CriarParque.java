@@ -30,9 +30,11 @@ public class CriarParque {
         repo = Repositorio.getRepositorio();
         List<Contentor> contentores = new ArrayList<>();
         for (Contentor c : repo.getContentorMap().values()){
-
-            comboBoxContentor.addItem(c);
+            if(c.getParqueContentores() == null) {
+                comboBoxContentor.addItem(c);
+            }
         }
+
         for(Gestor g: repo.getGestorMap().values()){
             comboBoxGestor.addItem(g);
         }
@@ -55,6 +57,9 @@ public class CriarParque {
                 Gestor gestor = (Gestor) comboBoxGestor.getSelectedItem();
                 ParqueContentores p = new ParqueContentores(nome,Morada,Localidade,contentores,gestor, municipio);
                 ParqueContentorBLL.criarParque(p);
+                for (Contentor c : p.getContentores()){
+                    c.setParqueContentores(p);
+                }
                 JOptionPane.showMessageDialog(null,"Parque criado com sucesso");
             }
         });
