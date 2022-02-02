@@ -35,6 +35,8 @@ public class ListarOrdensChefe {
                 new MenuChefe(chefeEquipa).trocarParaPainelPrincipal();
             }
         });
+        TabelaOrdem tabelaOrdem = new TabelaOrdem(ordemServicos);
+        table1.setModel(tabelaOrdem);
     }
 
     public JPanel getPanel1() {

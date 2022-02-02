@@ -48,6 +48,7 @@ public class MenuChefe extends JFrame{
                 OrdemServico aux;
                 aux = (OrdemServico) comboBox1.getSelectedItem();
                 aux.setEstado(EstadoOrdemServico.TERMINADO);
+                Repositorio.serializar();
             }
         });
     }
