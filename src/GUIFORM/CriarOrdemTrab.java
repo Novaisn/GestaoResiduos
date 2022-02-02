@@ -1,6 +1,7 @@
 package GUIFORM;
 
 import Modelo.*;
+import Repositorio.BLL.OrdemServicoBLL;
 import Repositorio.Repositorio;
 
 import javax.swing.*;
@@ -44,6 +45,7 @@ public class CriarOrdemTrab {
                 try {
                     Date data = DataFormat.parse(dataString);
                     OrdemServico ordemServico = new OrdemServico(data, descricao, p,equipa, EstadoOrdemServico.PENDENTE);
+                    OrdemServicoBLL.criarOrdem(ordemServico);
                 } catch (ParseException ex) {
                     ex.printStackTrace();
                 }
