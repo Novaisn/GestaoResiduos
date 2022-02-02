@@ -1,6 +1,8 @@
 package GUIFORM;
 
 import Modelo.ChefeEquipa;
+import Modelo.EstadoOrdemServico;
+import Modelo.OrdemServico;
 import Repositorio.Repositorio;
 
 import javax.swing.*;
@@ -12,13 +14,40 @@ public class MenuChefe extends JFrame{
     private JPanel painel;
     private JButton voltarButton;
     private JButton listarOrdensDeServicoButton;
+    private JComboBox comboBox1;
+    private JButton terminarOrdemDeServicoButton;
 
 
     public MenuChefe(ChefeEquipa chefeEquipa) {
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
+        for(OrdemServico o : repo.getOrdemServicoMap().values()){
+            if(o.getEstado().equals(EstadoOrdemServico.PENDENTE)){
+                if(o.getEquipa().getChefeEquipa().getIdChefeEquipa() == chefeEquipa.getIdChefeEquipa()){
+                    comboBox1.addItem(o);
+                }
+            }
+        }
         listarOrdensDeServicoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                trocarPainel(new ListarOrdensChefe(chefeEquipa).getPanel1());
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                hide();
+                new MainWindow("Main Window").trocarParaPainelPrincipal();
+            }
+        });
+        terminarOrdemDeServicoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrdemServico aux;
+                aux = (OrdemServico) comboBox1.getSelectedItem();
+                aux.setEstado(EstadoOrdemServico.TERMINADO);
             }
         });
     }
