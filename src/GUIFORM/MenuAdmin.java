@@ -18,6 +18,9 @@ public class MenuAdmin extends JFrame{
     private JButton voltarButton;
     private JButton criarTipoResiduoButton;
     private JComboBox comboBox1;
+    private JList list1Municipios;
+    private JList list2Chefes;
+    private JList list3Gestores;
 
     MenuAdmin(String titulo) {
         super(titulo);
