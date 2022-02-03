@@ -52,16 +52,19 @@ public class CriarChefe {
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
                 Municipio municipio = (Municipio) comboBox1.getSelectedItem();
+                int aux = 0;
                 for(ChefeEquipa c: repo.getEquipaMap().values()){
                     if(c.getNif().equals(Nif) || c.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        aux = 1;
                         break;
                     }
                 }
-                ChefeEquipa chefeEquipa = new ChefeEquipa(nome, NCC, Nif, telefone, morada, localidade, pass, user, municipio);
-                ChefeEquipaBLL.criarChefe(chefeEquipa);
-                JOptionPane.showMessageDialog(null,"Chefe criado com sucesso");
+                if(aux != 1) {
+                    ChefeEquipa chefeEquipa = new ChefeEquipa(nome, NCC, Nif, telefone, morada, localidade, pass, user, municipio);
+                    ChefeEquipaBLL.criarChefe(chefeEquipa);
+                    JOptionPane.showMessageDialog(null, "Chefe criado com sucesso");
+                }
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");

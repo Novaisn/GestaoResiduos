@@ -41,18 +41,19 @@ public class CriarAdmin {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
-
+                int aux = 0;
                 for(Admin a: repo.getAdminMap().values() ){
                     if(a.getNif().equals(Nif) || a.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        aux = 1;
                         break;
                     }
                 }
-                Admin admin = new Admin(nome, NCC, Nif, telefone, morada, localidade, pass, user);
-                AdminBLL.criarAdmin(admin);
-                JOptionPane.showMessageDialog(null,"Admin criado com sucesso");
-
+                if(aux != 1) {
+                    Admin admin = new Admin(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                    AdminBLL.criarAdmin(admin);
+                    JOptionPane.showMessageDialog(null, "Admin criado com sucesso");
+                }
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");

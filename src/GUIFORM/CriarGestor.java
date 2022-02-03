@@ -43,18 +43,20 @@ public class CriarGestor {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
-
+                int aux = 0;
                 for(Gestor g: repo.getGestorMap().values() ){
                     if(g.getNif().equals(Nif) || g.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        aux = 1;
                         break;
                     }
                 }
+                if(aux != 1) {
 
-                Gestor gestor = new Gestor(nome, NCC, Nif, telefone, morada, localidade, pass, user);
-                GestorBLL.criarGestor(gestor);
-                JOptionPane.showMessageDialog(null,"Gestor criado com sucesso");
+                    Gestor gestor = new Gestor(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                    GestorBLL.criarGestor(gestor);
+                    JOptionPane.showMessageDialog(null, "Gestor criado com sucesso");
+                }
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");

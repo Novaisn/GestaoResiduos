@@ -40,17 +40,20 @@ public class CriarMunicipio {
                 String localidade = textFieldLocalidade.getText();
                 String user = textFieldUser.getText();
                 String pass = passwordFieldPass.getText();
+                int aux = 0;
 
                for(Municipio m: repo.getMunicipioMap().values() ){
                     if(m.getNif().equals(Nif) || m.getUserName().equals(user)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuAdmin("Menu Admin").trocarParaPainelPrincipal();
+                        aux = 1;
                         break;
                     }
                 }
-                Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
-                MunicipioBLL.criarMunicipio(municipio);
-                JOptionPane.showMessageDialog(null,"Municipo criado com sucesso");
+               if (aux != 1 ) {
+                   Municipio municipio = new Municipio(nome, NCC, Nif, telefone, morada, localidade, pass, user);
+                   MunicipioBLL.criarMunicipio(municipio);
+                   JOptionPane.showMessageDialog(null, "Municipo criado com sucesso");
+               }
                 textFieldNome.setText("");
                 textFieldNCC.setText("");
                 textFieldNif.setText("");
