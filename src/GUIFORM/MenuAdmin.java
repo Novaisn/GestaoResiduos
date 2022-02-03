@@ -1,13 +1,14 @@
 package GUIFORM;
 
-import Modelo.Admin;
-import Modelo.Municipio;
-import Modelo.TipoResiduos;
+import Modelo.*;
 import Repositorio.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class MenuAdmin extends JFrame{
     private JPanel panel1;
@@ -18,16 +19,22 @@ public class MenuAdmin extends JFrame{
     private JButton voltarButton;
     private JButton criarTipoResiduoButton;
     private JComboBox comboBox1;
-    private JList list1Municipios;
-    private JList list2Chefes;
-    private JList list3Gestores;
+    private JButton alterarMunicipioButton;
 
+    private JList<ChefeEquipa> listChefes = new JList<>();
+    private DefaultListModel<Municipio> modelChefes = new DefaultListModel<>();
     MenuAdmin(String titulo) {
+
         super(titulo);
+
         this.setContentPane(panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
         criarMunicipioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,14 +76,18 @@ public class MenuAdmin extends JFrame{
             }
         });
 
-        Repositorio repo;
-        Repositorio.desserializar("BD.repo");
-        repo = Repositorio.getRepositorio();
+
 
         for (TipoResiduos t: repo.getTipoResiduosMap().values()){
             comboBox1.addItem(t);
         }
 
+        alterarMunicipioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarMunicipio().getPanel1());
+            }
+        });
     }
 
     public JPanel getPanel1() {
@@ -110,4 +121,16 @@ public class MenuAdmin extends JFrame{
         this.pack();
         this.setVisible(true);
     }
+    private void listMunicipios(){
+        Repositorio repo = Repositorio.getRepositorio();
+        Repositorio.desserializar("BD.repo");
+        repo = Repositorio.getRepositorio();
+
+        List<Municipio> municipios = new ArrayList<>();
+        for(Municipio m : repo.getMunicipioMap().values()){
+            municipios.add(m);
+        }
+
+    }
+
 }
