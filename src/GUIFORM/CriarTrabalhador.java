@@ -3,7 +3,8 @@ package GUIFORM;
 import Modelo.Municipio;
 import Modelo.Trabalhador;
 import Repositorio.BLL.TrabalhadorBLL;
-import Repositorio.RepositorioTrabalhador;
+import Repositorio.Repositorio;
+import Repositorio.Repositorio;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -25,25 +26,27 @@ public class CriarTrabalhador {
         buttonCriarTrabalhador.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RepositorioTrabalhador repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
-                RepositorioTrabalhador.desserializar("Trabalhador.repo");
-                repositorioTrabalhador = RepositorioTrabalhador.getRepositorioTrabalhador();
+                Repositorio repositorioTrabalhador = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repositorioTrabalhador = Repositorio.getRepositorio();
                 String nome = textFieldNome.getText();
                 String NSS = textFieldNSS.getText();
                 String Nif = textFieldNIF.getText();
                 String telefone = textFieldTelefone.getText();
                 double salario = Double.parseDouble(textFieldSalario.getText());
-
+                int aux = 0;
                 for(Trabalhador t: repositorioTrabalhador.getTrabalhadorMap().values() ){
                     if(t.getNIF().equals(Nif) || t.getNSS().equals(NSS)){
                         JOptionPane.showMessageDialog(null, "Erro");
-                        new MenuMunicipio("Menu Municipio", municipio).trocarParaPainelPrincipal();
+                        aux = 1;
                         break;
                     }
                 }
-                Trabalhador trabalhador = new Trabalhador(nome, Nif,NSS,telefone,salario, municipio);
-                TrabalhadorBLL.criarTrabalhador(trabalhador);
-                JOptionPane.showMessageDialog(null, "Trabalhador criado com sucesso");
+                if(aux != 1) {
+                    Trabalhador trabalhador = new Trabalhador(nome, Nif, NSS, telefone, salario, municipio);
+                    TrabalhadorBLL.criarTrabalhador(trabalhador);
+                    JOptionPane.showMessageDialog(null, "Trabalhador criado com sucesso");
+                }
                 textFieldNome.setText("");
                 textFieldNSS.setText("");
                 textFieldNIF.setText("");

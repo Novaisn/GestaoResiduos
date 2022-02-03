@@ -3,7 +3,7 @@ package Repositorio.BLL;
 import Modelo.Admin;
 import Modelo.TipoResiduos;
 import Repositorio.Repositorio;
-import Repositorio.RepositorioTipoResiduo;
+
 
 public class TipoResiduoBLL {
     public static int getNextIdTipoResiduo(){

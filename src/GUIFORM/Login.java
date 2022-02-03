@@ -5,9 +5,7 @@ import Modelo.ChefeEquipa;
 import Modelo.Gestor;
 import Modelo.Municipio;
 import Repositorio.Repositorio;
-import Repositorio.RepositorioChefeEquipa;
-import Repositorio.RepositorioGestor;
-import Repositorio.RepositorioMunicipio;
+
 
 import javax.swing.*;
 import java.awt.*;

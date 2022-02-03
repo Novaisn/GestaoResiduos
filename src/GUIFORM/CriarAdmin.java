@@ -6,7 +6,7 @@ import Modelo.Trabalhador;
 import Repositorio.BLL.AdminBLL;
 import Repositorio.BLL.MunicipioBLL;
 import Repositorio.Repositorio;
-import Repositorio.RepositorioAdmin;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

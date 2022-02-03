@@ -3,7 +3,7 @@ package Repositorio.BLL;
 
 import Modelo.Gestor;
 
-import Repositorio.RepositorioGestor;
+
 import Repositorio.Repositorio;
 public class GestorBLL {
     public static int getNextIdGestor(){

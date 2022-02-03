@@ -1,7 +1,7 @@
 package Repositorio.BLL;
 
 import Modelo.Admin;
-import Repositorio.RepositorioAdmin;
+
 import Repositorio.Repositorio;
 
 public class AdminBLL {

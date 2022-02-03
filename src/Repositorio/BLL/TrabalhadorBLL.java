@@ -3,7 +3,7 @@ package Repositorio.BLL;
 
 import Modelo.Trabalhador;
 import Repositorio.Repositorio;
-import Repositorio.RepositorioTrabalhador;
+
 
 public class TrabalhadorBLL {
     public static int getNextIdTrabalhador(){

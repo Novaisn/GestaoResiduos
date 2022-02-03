@@ -3,7 +3,7 @@ package Repositorio.BLL;
 
 import Modelo.Municipio;
 import Repositorio.Repositorio;
-import Repositorio.RepositorioMunicipio;
+
 
 public class MunicipioBLL {
     public static int getNextIdMunicipio(){
