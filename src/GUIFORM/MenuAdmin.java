@@ -20,6 +20,8 @@ public class MenuAdmin extends JFrame{
     private JButton criarTipoResiduoButton;
     private JComboBox comboBox1;
     private JButton alterarMunicipioButton;
+    private JButton alterarGestorButton;
+    private JButton alterarChefeButton;
 
     private JList<ChefeEquipa> listChefes = new JList<>();
     private DefaultListModel<Municipio> modelChefes = new DefaultListModel<>();
@@ -88,6 +90,19 @@ public class MenuAdmin extends JFrame{
                 trocarPainel(new AlterarMunicipio().getPanel1());
             }
         });
+
+        alterarGestorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarGestor().getPa());
+            }
+        });
+        alterarChefeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarChefe().getJpainel());
+            }
+        });
     }
 
     public JPanel getPanel1() {
@@ -103,7 +118,7 @@ public class MenuAdmin extends JFrame{
         Repositorio.desserializar("BD.repo");
         repo = Repositorio.getRepositorio();
 
-        MenuAdmin frame = new MenuAdmin("titulo");
+        MenuAdmin frame = new MenuAdmin("Menu Admin");
 
 
 

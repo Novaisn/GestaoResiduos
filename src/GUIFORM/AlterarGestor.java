@@ -88,6 +88,7 @@ public class AlterarGestor {
                 for (Gestor g : repo.getGestorMap().values()){
                     if(g.getIdGestor() == aux.getIdGestor()){
                         repo.getGestorMap().remove(g.getIdGestor(), g);
+                        Repositorio.serializar();
                     }
                 }
             }

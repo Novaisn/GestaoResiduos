@@ -18,14 +18,7 @@ public class MainWindow extends JFrame {
     MainWindow(String title) {
         super(title);
         //
-        // Barra de menus
-        //
-        this.setJMenuBar(new JMenuBar());
-        this.getJMenuBar().add(new JMenu("Municipios"));
-        this.getJMenuBar().getMenu(0).add(new JMenuItem("Criar Novo Municipio"));
-        this.getJMenuBar().add(new JMenu("Login"));
-        this.getJMenuBar().getMenu(0).add(new JMenuItem("Login Municipio"));
-        this.getJMenuBar().setVisible(true);
+
         //
         // Conteudo da Pane da JFrame
         //

@@ -14,6 +14,9 @@ public class MenuMunicipio extends JFrame {
     private JButton criarTrabalhadorButton;
     private JButton criarEquipaButton;
     private JButton criarContentorButton;
+    private JButton alterarTrabalhadorButton;
+    private JButton alterarEquipaButton;
+    private JButton alterarEliminarParqueButton;
 
 
     public MenuMunicipio(String titulo, Municipio municipio) {
@@ -53,6 +56,24 @@ public class MenuMunicipio extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 trocarPainel(new CriarContentor().getPanel1());
+            }
+        });
+        alterarTrabalhadorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarTrabalhador(municipio).getPainelprincipal());
+            }
+        });
+        alterarEquipaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarEquipa(municipio).getPainelPrincipal());
+            }
+        });
+        alterarEliminarParqueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                trocarPainel(new AlterarParque(municipio).getPainelPrincipal());
             }
         });
     }
