@@ -57,7 +57,39 @@ public class AlterarGestor {
         alterarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
+                Gestor aux;
+                aux = (Gestor) comboBoxGestor.getSelectedItem();
+                for(Gestor g: repo.getGestorMap().values()){
+                    if (g.getIdGestor() == aux.getIdGestor()){
+                        aux.setNome(textFieldNome.getText());
+                        aux.setLocalidade(textFieldLocalidade.getText());
+                        aux.setMorada(textFieldMorada.getText());
+                        aux.setnCC(textFieldNCC.getText());
+                        aux.setNif(textFieldNif.getText());
+                        aux.setPass(textFieldLocalidade.getText());
+                        aux.setTelefone(textFieldTelefone.getText());
+                        aux.setUserName(textFieldUser.getText());
+                        Repositorio.serializar();
+                    }
+                }
+            }
+        });
+        eliminarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
+                Gestor aux;
+                aux = (Gestor) comboBoxGestor.getSelectedItem();
+                for (Gestor g : repo.getGestorMap().values()){
+                    if(g.getIdGestor() == aux.getIdGestor()){
+                        repo.getGestorMap().remove(g.getIdGestor(), g);
+                    }
+                }
             }
         });
     }

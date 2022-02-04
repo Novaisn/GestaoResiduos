@@ -75,7 +75,7 @@ public class AlterarMunicipio {
                 Municipio municipio3 = (Municipio) comboBox1.getSelectedItem();
                 for (Municipio m : repo.getMunicipioMap().values()){
                     if (m.getIdMunicipio() == municipio3.getIdMunicipio()){
-                        repo.getMunicipioMap().remove(m);
+                        repo.getMunicipioMap().remove(m.getIdMunicipio(), m);
                         Repositorio.serializar();
                     }
                 }

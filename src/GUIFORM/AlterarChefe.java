@@ -67,7 +67,7 @@ public class AlterarChefe {
                 ChefeEquipa chefeEquipa1 = (ChefeEquipa) comboBoxAlterar.getSelectedItem();
                 for(ChefeEquipa c : repo.getEquipaMap().values()){
                     if (c.getIdChefeEquipa() == chefeEquipa1.getIdChefeEquipa()){
-                        repo.getEquipaMap().remove(c);
+                        repo.getEquipaMap().remove(c.getIdChefeEquipa(), c);
                         Repositorio.serializar();
                     }
                 }
