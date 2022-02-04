@@ -81,6 +81,7 @@ public class CriarChefe {
                 new MenuAdmin("Menu Admin");
             }
         });
+
     }
 
     public JPanel getJPanel1() {

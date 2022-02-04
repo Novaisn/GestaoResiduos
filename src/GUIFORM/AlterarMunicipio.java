@@ -76,6 +76,7 @@ public class AlterarMunicipio {
                 for (Municipio m : repo.getMunicipioMap().values()){
                     if (m.getIdMunicipio() == municipio3.getIdMunicipio()){
                         repo.getMunicipioMap().remove(m);
+                        Repositorio.serializar();
                     }
                 }
             }
