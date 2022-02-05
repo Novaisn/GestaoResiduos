@@ -67,7 +67,7 @@ public class Login {
                 for(ChefeEquipa chefeEquipa: repo.getEquipaMap().values()){
                     if(nome.equals(chefeEquipa.getUserName()) && pass.equals(chefeEquipa.getPass())){
                         JOptionPane.showMessageDialog(null, "login efetuado com sucesso");
-
+                        new MenuChefe(chefeEquipa).trocarParaPainelPrincipal();
                         break;
                     }
                 }
