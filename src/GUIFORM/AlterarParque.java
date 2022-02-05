@@ -77,8 +77,16 @@ public class AlterarParque {
                     if (p.getIdParqueContentor() == aux.getIdParqueContentor()) {
                             repo.getParqueMap().remove(p.getIdParqueContentor(), p);
                             Repositorio.serializar();
+                            comboBoxParque.removeItem(comboBoxParque.getSelectedItem());
+                            break;
                     }
                 }
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuMunicipio("Menu Municipio", municipio).trocarParaPainelPrincipal();
             }
         });
     }

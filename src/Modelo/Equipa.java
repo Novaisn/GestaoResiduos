@@ -67,4 +67,8 @@ public class Equipa  implements Serializable {
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
+
+    public String toString(){
+        return " "+getNome()+"--"+getResiduos();
+    }
 }

@@ -69,6 +69,8 @@ public class AlterarChefe {
                     if (c.getIdChefeEquipa() == chefeEquipa1.getIdChefeEquipa()){
                         repo.getEquipaMap().remove(c.getIdChefeEquipa(), c);
                         Repositorio.serializar();
+                        comboBoxAlterar.removeItem(comboBoxAlterar.getSelectedItem());
+                        break;
                     }
                 }
             }

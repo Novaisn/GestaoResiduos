@@ -89,6 +89,8 @@ public class AlterarGestor {
                     if(g.getIdGestor() == aux.getIdGestor()){
                         repo.getGestorMap().remove(g.getIdGestor(), g);
                         Repositorio.serializar();
+                        comboBoxGestor.removeItem(comboBoxGestor.getSelectedItem());
+                        break;
                     }
                 }
             }
@@ -126,4 +128,6 @@ public class AlterarGestor {
     public void setJPanel1(JPanel JPanel1) {
         this.JPanel1 = JPanel1;
     }
+
+
 }

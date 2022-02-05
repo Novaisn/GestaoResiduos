@@ -77,6 +77,8 @@ public class AlterarMunicipio {
                     if (m.getIdMunicipio() == municipio3.getIdMunicipio()){
                         repo.getMunicipioMap().remove(m.getIdMunicipio(), m);
                         Repositorio.serializar();
+                        comboBox1.removeItem(comboBox1.getSelectedItem());
+                        break;
                     }
                 }
             }

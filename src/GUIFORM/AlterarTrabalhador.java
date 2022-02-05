@@ -64,6 +64,8 @@ public class AlterarTrabalhador {
                     if (t.getIdTrabalhador() == aux.getIdTrabalhador()){
                         repo.getTrabalhadorMap().remove(t.getIdTrabalhador(), t);
                         Repositorio.serializar();
+                        comboBoxTrabalhador.removeItem(comboBoxTrabalhador.getSelectedItem());
+                        break;
                     }
                 }
 

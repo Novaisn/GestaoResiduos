@@ -34,6 +34,7 @@ public class CriarOrdemTrab {
         }
 
 
+
         criarOrdemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,6 +54,26 @@ public class CriarOrdemTrab {
 
 
 
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuGestor(gestor).trocarParaPainelPrincipal();
+            }
+        });
+        comboBoxParque.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
+                ParqueContentores aux = (ParqueContentores) comboBoxParque.getSelectedItem();
+                for(Equipa eq : repo.getEquipatrabalhadoresMap().values()){
+                    if(eq.getMunicipio().getIdMunicipio() == aux.getMunicipio().getIdMunicipio()){
+                        comboBoxEquipa.addItem(eq);
+                    }
+                }
             }
         });
     }

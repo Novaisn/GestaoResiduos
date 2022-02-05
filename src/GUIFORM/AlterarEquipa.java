@@ -71,6 +71,8 @@ public class AlterarEquipa {
                         equipa1.setNome(textField1.getText());
                         equipa1.setChefeEquipa((ChefeEquipa) comboBoxChefe.getSelectedItem());
                         Repositorio.serializar();
+                        comboBoxEquipa.removeItem(comboBoxEquipa.getSelectedItem());
+                        break;
                     }
                 }
 
