@@ -44,8 +44,15 @@ public class AtualizarEstadoContentor {
                 cont = (Contentor) comboBoxContentor.getSelectedItem();
                 EstadoContentor ec;
                 ec = (EstadoContentor) comboBoxEstado.getSelectedItem();
-                cont.setEstadoContentor(ec);
-                repo.serializar();
+
+                for (Contentor c : repo.getContentorMap().values()){
+                    if(c.getIdContentor() == cont.getIdContentor()){
+                        c.setEstadoContentor(ec);
+                        repo.serializar();
+                        break;
+                    }
+                }
+
             }
         });
 
