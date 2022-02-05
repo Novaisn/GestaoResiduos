@@ -43,13 +43,22 @@ public class MenuChefe extends JFrame{
         terminarOrdemDeServicoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Repositorio repo = Repositorio.getRepositorio();
+                Repositorio.desserializar("BD.repo");
+                repo = Repositorio.getRepositorio();
                 OrdemServico aux;
                 aux = (OrdemServico) comboBox1.getSelectedItem();
                 aux.setEstado(EstadoOrdemServico.TERMINADO);
-                for(Contentor c : aux.getParqueContentores().getContentores()){
-                    c.setEstadoContentor(EstadoContentor.ATE_MEIO);
+                for(OrdemServico o : repo.getOrdemServicoMap().values()){
+                    if(o.getIdOrdem() == aux.getIdOrdem()){
+                        for(Contentor c : o.getParqueContentores().getContentores()){
+                            c.setEstadoContentor(EstadoContentor.ATE_MEIO);
+                        }
+                        o.setEstado(EstadoOrdemServico.TERMINADO);
+                        break;
+                    }
                 }
-                Repositorio.serializar();
+
 
             }
         });
