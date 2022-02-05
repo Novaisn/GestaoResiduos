@@ -66,4 +66,8 @@ public class OrdemServico implements Serializable {
     public void setParqueContentores(ParqueContentores parqueContentores) {
         this.parqueContentores = parqueContentores;
     }
+
+    public String toString(){
+        return "data: "+getData()+"--"+getDescricao()+"-"+getParqueContentores();
+    }
 }
