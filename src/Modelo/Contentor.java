@@ -14,7 +14,7 @@ public class Contentor implements Serializable {
 
         this.tipoResiduo = tipoResiduo;
         this.estadoContentor = estadoContentor;
-
+        this.municipio = municipio;
     }
 
     public Municipio getMunicipio() {
