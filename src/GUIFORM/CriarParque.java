@@ -30,7 +30,7 @@ public class CriarParque {
         repo = Repositorio.getRepositorio();
         List<Contentor> contentores = new ArrayList<>();
         for (Contentor c : repo.getContentorMap().values()){
-            if(c.getParqueContentores() == null) {
+            if(c.getParqueContentores() == null && c.getMunicipio().getIdMunicipio() == municipio.getIdMunicipio()) {
                 comboBoxContentor.addItem(c);
             }
         }

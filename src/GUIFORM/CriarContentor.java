@@ -2,6 +2,7 @@ package GUIFORM;
 
 import Modelo.Contentor;
 import Modelo.EstadoContentor;
+import Modelo.Municipio;
 import Modelo.TipoResiduos;
 import Repositorio.BLL.ContentorBLL;
 import Repositorio.Repositorio;
@@ -14,9 +15,10 @@ public class CriarContentor {
     private JPanel panel1;
     private JComboBox comboBox1;
     private JButton criarContentorButton;
+    private JButton voltarButton;
 
 
-    public CriarContentor() {
+    public CriarContentor(Municipio municipio) {
         Repositorio repo = Repositorio.getRepositorio();
         Repositorio.desserializar("BD.repo");
         repo = Repositorio.getRepositorio();
@@ -28,8 +30,14 @@ public class CriarContentor {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TipoResiduos tipoSelecionado = (TipoResiduos) comboBox1.getSelectedItem();
-                Contentor c = new Contentor(tipoSelecionado, EstadoContentor.ATE_MEIO);
+                Contentor c = new Contentor(tipoSelecionado, EstadoContentor.ATE_MEIO, municipio);
                 ContentorBLL.criarContentor(c);
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuMunicipio("Menu Municipio", municipio).trocarParaPainelPrincipal();
             }
         });
     }

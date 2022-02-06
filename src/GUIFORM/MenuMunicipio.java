@@ -55,7 +55,7 @@ public class MenuMunicipio extends JFrame {
         criarContentorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                trocarPainel(new CriarContentor().getPanel1());
+                trocarPainel(new CriarContentor(municipio).getPanel1());
             }
         });
         alterarTrabalhadorButton.addActionListener(new ActionListener() {

@@ -95,6 +95,12 @@ public class AlterarGestor {
                 }
             }
         });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuAdmin("menu Admin").trocarParaPainelPrincipal();
+            }
+        });
     }
 
     public JPanel getPa() {

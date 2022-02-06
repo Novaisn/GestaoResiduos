@@ -8,12 +8,21 @@ public class Contentor implements Serializable {
     private EstadoContentor estadoContentor;
     private String Anotacao;
     private ParqueContentores parqueContentores;
+    private Municipio municipio;
 
-    public Contentor( TipoResiduos tipoResiduo, EstadoContentor estadoContentor) {
+    public Contentor( TipoResiduos tipoResiduo, EstadoContentor estadoContentor, Municipio municipio) {
 
         this.tipoResiduo = tipoResiduo;
         this.estadoContentor = estadoContentor;
 
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 
     public String getAnotacao() {

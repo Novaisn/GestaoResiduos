@@ -52,7 +52,7 @@ public class ListarContentores {
     }
 
     private static class TabelaContentor extends AbstractTableModel {
-        private final String[] COLUMNS = {"ID", "TIPO RESIDUO","ESTADO"};
+        private final String[] COLUMNS = {"ID", "TIPO RESIDUO","ESTADO","Parque"};
         List<Contentor> contentors;
 
         private TabelaContentor(List<Contentor> contentors){
@@ -75,6 +75,7 @@ public class ListarContentores {
                         case 0 -> contentors.get(rowIndex).getIdContentor();
                         case 1 -> contentors.get(rowIndex).getTipoResiduo();
                         case 2 -> contentors.get(rowIndex).getEstadoContentor();
+                        case 3 -> contentors.get(rowIndex).getParqueContentores();
                 default -> "-";
             };
         }
