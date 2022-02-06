@@ -55,6 +55,8 @@ public class MenuChefe extends JFrame{
                             c.setEstadoContentor(EstadoContentor.ATE_MEIO);
                         }
                         o.setEstado(EstadoOrdemServico.TERMINADO);
+                        comboBox1.removeItem(comboBox1.getSelectedItem());
+                        Repositorio.serializar();
                         break;
                     }
                 }
