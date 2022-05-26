@@ -41,16 +41,6 @@ public class CriarOrdemTrab {
                 String descricao = textFieldDescricao.getText();
                 ParqueContentores p = (ParqueContentores) comboBoxParque.getSelectedItem();
                 Equipa equipa = (Equipa) comboBoxEquipa.getSelectedItem();
-                String dataString = textField1.getText();
-                SimpleDateFormat DataFormat = new SimpleDateFormat("dd/mm/yyyy");
-                try {
-                    Date data = DataFormat.parse(dataString);
-                    OrdemServico ordemServico = new OrdemServico(data, descricao, p,equipa, EstadoOrdemServico.PENDENTE);
-                    OrdemServicoBLL.criarOrdem(ordemServico);
-                } catch (ParseException ex) {
-                    ex.printStackTrace();
-                }
-
 
 
 
